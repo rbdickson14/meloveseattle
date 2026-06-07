@@ -6,273 +6,6 @@
   <title>Portfolio | Richard B. Dickson</title>
   <meta name="description" content="Data science and analytics portfolio of Richard B. Dickson.">
   <link rel="stylesheet" href="../style.css">
-  <style>
-    .project-block {
-      padding: 4rem 6rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-bottom: 1px solid rgba(15,31,56,0.08);
-    }
-    .project-block:last-child { border-bottom: none; }
-
-    .project-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .project-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      font-weight: 300;
-      color: rgba(15,31,56,0.07);
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .project-meta h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
-      font-weight: 400;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-      line-height: 1.2;
-    }
-
-    .project-course {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .project-body {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .project-desc {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: var(--text-light);
-      margin-bottom: 1.2rem;
-    }
-
-    .project-desc strong {
-      color: var(--navy);
-      font-weight: 500;
-    }
-
-    /* STAT CARDS */
-    .stat-panel {
-      background: var(--navy);
-      padding: 2rem;
-    }
-
-    .stat-panel-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid rgba(200,169,110,0.25);
-    }
-
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .stat-row:last-of-type { border-bottom: none; }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: rgba(248,245,240,0.55);
-      letter-spacing: 0.04em;
-    }
-
-    .stat-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--gold-light);
-      text-align: right;
-      max-width: 55%;
-    }
-
-    .stat-value.highlight {
-      color: #7dd3b0;
-      font-size: 1.3rem;
-    }
-
-    /* BAR CHART */
-    .bar-chart {
-      margin-top: 1.2rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(200,169,110,0.2);
-    }
-
-    .bar-chart-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(248,245,240,0.45);
-      margin-bottom: 0.8rem;
-    }
-
-    .bar-item {
-      margin-bottom: 0.6rem;
-    }
-
-    .bar-item-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.73rem;
-      color: rgba(248,245,240,0.6);
-      margin-bottom: 0.25rem;
-    }
-
-    .bar-track {
-      height: 5px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      height: 100%;
-      border-radius: 2px;
-      background: var(--gold);
-      transition: width 1s ease;
-    }
-
-    .bar-fill.green { background: #7dd3b0; }
-    .bar-fill.blue  { background: #7eb8d4; }
-
-    /* RISK METER */
-    .risk-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(200,169,110,0.2);
-    }
-
-    .risk-cell {
-      text-align: center;
-      padding: 0.7rem 0.4rem;
-    }
-
-    .risk-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin: 0 auto 0.4rem;
-    }
-
-    .risk-dot.high  { background: #e07070; }
-    .risk-dot.med   { background: #e8c56e; }
-    .risk-dot.low   { background: #7dd3b0; }
-
-    .risk-cell-label {
-      font-size: 0.68rem;
-      color: rgba(248,245,240,0.5);
-      letter-spacing: 0.06em;
-    }
-
-    .risk-cell-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--gold-light);
-    }
-
-    /* STOCK MINI CHART */
-    .stock-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 4px;
-      height: 50px;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(200,169,110,0.2);
-    }
-
-    .stock-bar {
-      flex: 1;
-      border-radius: 2px 2px 0 0;
-      min-height: 6px;
-      position: relative;
-    }
-
-    .stock-bar-label {
-      position: absolute;
-      bottom: -18px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.6rem;
-      color: rgba(248,245,240,0.45);
-      white-space: nowrap;
-    }
-
-    /* CLOUD COST COMPARISON */
-    .cost-compare {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(200,169,110,0.2);
-    }
-
-    .cost-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .cost-box {
-      padding: 0.6rem;
-      text-align: center;
-    }
-
-    .cost-box.onprem { background: rgba(224,112,112,0.15); }
-    .cost-box.cloud  { background: rgba(125,211,176,0.15); }
-
-    .cost-box-label {
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(248,245,240,0.45);
-      margin-bottom: 0.3rem;
-    }
-
-    .cost-box-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      color: var(--gold-light);
-    }
-
-    .savings-badge {
-      text-align: center;
-      padding: 0.5rem;
-      background: rgba(125,211,176,0.12);
-      font-size: 0.75rem;
-      color: #7dd3b0;
-      letter-spacing: 0.06em;
-    }
-
-    @media (max-width: 900px) {
-      .project-block { padding: 3rem 2rem; }
-      .project-body { grid-template-columns: 1fr; }
-      .project-num { font-size: 2.5rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -291,13 +24,11 @@
     <h1>Portfolio</h1>
   </div>
 
-  <div style="padding: 3rem 6rem 1rem; max-width: 1100px; margin: 0 auto;">
+  <div class="section">
     <p class="section-label">Applied Data Science</p>
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--navy); margin-bottom:1rem;">Projects &amp; Analysis</h2>
+    <h2>Projects &amp; Analysis</h2>
     <div class="divider"></div>
-    <p style="font-size:0.97rem; line-height:1.9; color:var(--text-light); max-width:680px;">
-      The following projects were completed as part of my Master of Science in Applied Data Science program, spanning machine learning, database management, financial analysis, and cloud infrastructure — each grounded in real-world business problems.
-    </p>
+    <p>The following projects were completed as part of my Master of Science in Applied Data Science program, spanning machine learning, database management, financial analysis, and cloud infrastructure — each grounded in real-world business problems.</p>
   </div>
 
   <!-- PROJECT 1 -->
@@ -316,4 +47,251 @@
         <p class="project-desc"><strong>Method:</strong> Six classifiers evaluated through a 5-fold cross-validation pipeline measuring Accuracy, ROC-AUC, and F1-score. SMOTE addressed class imbalance; GridSearch tuned hyperparameters; PCA reduced dimensionality.</p>
         <p class="project-desc"><strong>Clinical Insight:</strong> Age and chronic conditions — stroke, kidney disease, diabetes — are the strongest predictors. Sleep, exercise, BMI, and mental health are measurable levers for early intervention.</p>
         <div class="career-tags">
-          <span class="t
+          <span class="tag">Python</span>
+          <span class="tag">Random Forest</span>
+          <span class="tag">Logistic Regression</span>
+          <span class="tag">SMOTE</span>
+          <span class="tag">GridSearch</span>
+          <span class="tag">PCA</span>
+        </div>
+      </div>
+      <div class="stat-panel">
+        <p class="stat-panel-title">Model Performance</p>
+        <div class="stat-row">
+          <span class="stat-label">Best Model</span>
+          <span class="stat-value">Logistic Regression</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Test Accuracy</span>
+          <span class="stat-value highlight">75.7%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">F1-Macro Score</span>
+          <span class="stat-value highlight">0.76</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">ROC-AUC</span>
+          <span class="stat-value highlight">0.84</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Dataset Size</span>
+          <span class="stat-value">300,000+ patients</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Classifiers Evaluated</span>
+          <span class="stat-value">6 models</span>
+        </div>
+        <div class="bar-chart">
+          <p class="bar-chart-title">Top Risk Predictors</p>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>Age / Chronic Conditions</span><span>High</span></div>
+            <div class="bar-track"><div class="bar-fill green" style="width:92%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>BMI</span><span>Medium</span></div>
+            <div class="bar-track"><div class="bar-fill green" style="width:64%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>Sleep / Exercise</span><span>Medium</span></div>
+            <div class="bar-track"><div class="bar-fill green" style="width:55%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-block">
+    <div class="project-header">
+      <div class="project-num">02</div>
+      <div class="project-meta">
+        <h2>SQL Querying for Mortgage Lender</h2>
+        <p class="project-course">Data Admin &amp; Database Management · Final Project · Azure · Complexity: Intermediate</p>
+      </div>
+    </div>
+    <div class="project-body">
+      <div>
+        <p class="project-desc"><strong>Problem:</strong> First Rate Financial, a Texas mortgage brokerage funding over $100M annually, faced inefficiencies identifying refinance opportunities among past clients and evaluating new borrowers for loan approval.</p>
+        <p class="project-desc"><strong>Solution:</strong> Designed and implemented a relational SQL database in Azure, separating data across Property, Borrower, and Loan tables. Loan Officers can now query past transactions by interest rate, mortgage insurance, and second lien status.</p>
+        <p class="project-desc"><strong>Outcome:</strong> New applicants are automatically segmented into High, Medium, and Low Risk groups based on income, DTI ratio, FICO scores, and loan-to-value — improving efficiency across the lending workflow.</p>
+        <div class="career-tags">
+          <span class="tag">SQL</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Relational DB</span>
+          <span class="tag">Risk Segmentation</span>
+          <span class="tag">ERD Modeling</span>
+        </div>
+      </div>
+      <div class="stat-panel">
+        <p class="stat-panel-title">Database Overview</p>
+        <div class="stat-row">
+          <span class="stat-label">Platform</span>
+          <span class="stat-value">Microsoft Azure</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Annual Loan Volume</span>
+          <span class="stat-value highlight">$100M+</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Tables Designed</span>
+          <span class="stat-value">3 core tables</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Query Types</span>
+          <span class="stat-value">Views, Joins, Aggregates</span>
+        </div>
+        <div class="risk-grid">
+          <div class="risk-cell">
+            <div class="risk-dot high"></div>
+            <div class="risk-cell-label">High Risk</div>
+            <div class="risk-cell-val">DTI &gt;43%</div>
+          </div>
+          <div class="risk-cell">
+            <div class="risk-dot med"></div>
+            <div class="risk-cell-label">Med Risk</div>
+            <div class="risk-cell-val">DTI 36–43%</div>
+          </div>
+          <div class="risk-cell">
+            <div class="risk-dot low"></div>
+            <div class="risk-cell-label">Low Risk</div>
+            <div class="risk-cell-val">DTI &lt;36%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project-block">
+    <div class="project-header">
+      <div class="project-num">03</div>
+      <div class="project-meta">
+        <h2>FAANG Stock Data Analysis</h2>
+        <p class="project-course">Scripting for Data Analysis · Final Project · Python · Complexity: Intermediate</p>
+      </div>
+    </div>
+    <div class="project-body">
+      <div>
+        <p class="project-desc"><strong>Objective:</strong> Analyze the relationship between five high-performing tech stocks — NVDA, AAPL, MSFT, GOOGL, and AMZN — to determine whether they outpace the general market over a 15-year period, benchmarked against the DOW and S&amp;P 500.</p>
+        <p class="project-desc"><strong>Method:</strong> Time series analysis, correlation studies, and trend tracking visualized through line plots, heatmaps, boxplots, and histograms. Sentiment analysis via Tweepy API attempted to correlate market volatility with major news events.</p>
+        <p class="project-desc"><strong>Key Finding:</strong> NVIDIA showed the lowest correlation with other FAANG stocks. Apple, Google, Amazon, and Microsoft moved closely in tandem with the S&amp;P 500 and DOW. The DJI experienced the most significant single-month absolute price changes across the study period.</p>
+        <div class="career-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Time Series</span>
+          <span class="tag">yfinance API</span>
+          <span class="tag">Tweepy API</span>
+          <span class="tag">Sentiment Analysis</span>
+          <span class="tag">Correlation Matrix</span>
+        </div>
+      </div>
+      <div class="stat-panel">
+        <p class="stat-panel-title">Correlation with S&amp;P 500</p>
+        <div class="stat-row">
+          <span class="stat-label">Study Period</span>
+          <span class="stat-value">15 Years</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Securities Tracked</span>
+          <span class="stat-value">7 total</span>
+        </div>
+        <div class="bar-chart">
+          <p class="bar-chart-title">Correlation Scores</p>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>GOOGL</span><span>0.99</span></div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:99%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>AAPL</span><span>0.97</span></div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:97%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>MSFT</span><span>0.97</span></div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:97%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>AMZN</span><span>0.95</span></div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:95%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>NVDA</span><span>0.79</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:79%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="project-block">
+    <div class="project-header">
+      <div class="project-num">04</div>
+      <div class="project-meta">
+        <h2>Cloud Migration Feasibility Study</h2>
+        <p class="project-course">Cloud Management · Final Project · AWS · Complexity: Intermediate</p>
+      </div>
+    </div>
+    <div class="project-body">
+      <div>
+        <p class="project-desc"><strong>Problem:</strong> A fictional music streaming platform (Cecilia) competed against Spotify and Apple Music while constrained by aging on-premises datacenter infrastructure — unable to scale during peak hours, suffering outages, and draining engineering resources.</p>
+        <p class="project-desc"><strong>Analysis:</strong> AWS, Microsoft Azure, and Google Cloud were evaluated across 19 categories spanning financial, technical, and operational dimensions using a structured side-by-side scorecard.</p>
+        <p class="project-desc"><strong>Conclusion:</strong> AWS was identified as the clear choice for media-specific workloads. A 10-year cost analysis showed the on-premises path costing over $118M versus $3.1M on AWS — a gap of more than $115M.</p>
+        <div class="career-tags">
+          <span class="tag">AWS</span>
+          <span class="tag">Microsoft Azure</span>
+          <span class="tag">Google Cloud</span>
+          <span class="tag">Cost Modeling</span>
+          <span class="tag">Cloud Architecture</span>
+          <span class="tag">IaaS / PaaS / SaaS</span>
+        </div>
+      </div>
+      <div class="stat-panel">
+        <p class="stat-panel-title">Annual Cost Comparison</p>
+        <div class="cost-compare">
+          <div class="cost-row">
+            <div class="cost-box onprem">
+              <div class="cost-box-label">On-Premises</div>
+              <div class="cost-box-val">$13.2M/yr</div>
+            </div>
+            <div class="cost-box cloud">
+              <div class="cost-box-label">AWS Cloud</div>
+              <div class="cost-box-val">$2.4–3.1M/yr</div>
+            </div>
+          </div>
+          <div class="savings-badge">Est. Annual Savings: $9.6M – $10.4M</div>
+        </div>
+        <div class="bar-chart">
+          <p class="bar-chart-title">10-Year Cost Total</p>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>On-Premises</span><span>$118M</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:100%; background:#e07070;"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-item-label"><span>AWS Cloud</span><span>$3.1M</span></div>
+            <div class="bar-track"><div class="bar-fill green" style="width:3%"></div></div>
+          </div>
+        </div>
+        <div class="stat-row" style="margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(200,169,110,0.2);">
+          <span class="stat-label">10-Year Total Savings</span>
+          <span class="stat-value highlight">$115M+</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Categories Evaluated</span>
+          <span class="stat-value">19 dimensions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-name">Richard B. Dickson</span>
+    <div class="footer-links">
+      <a href="../about/index.html">About</a>
+      <a href="../career-highlights/index.html">Career</a>
+      <a href="../portfolio/index.html">Portfolio</a>
+      <a href="https://www.linkedin.com/in/richardbdickson" target="_blank">LinkedIn</a>
+    </div>
+    <span class="footer-copy">© 2025 Richard B. Dickson</span>
+  </footer>
+
+</body>
+</html>
