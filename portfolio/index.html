@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Richard Brad Dickson</title>
-  <meta name="description" content="Data science and analytics portfolio of Richard Brad Dickson.">
+  <title>Portfolio | Richard B. Dickson</title>
+  <meta name="description" content="Data science and analytics portfolio of Richard B. Dickson.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
   <nav>
-    <a href="../index.html" class="nav-logo">R. Brad Dickson</a>
+    <a href="../index.html" class="nav-logo">Richard B. Dickson</a>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="../about/index.html">About Me</a></li>
@@ -28,11 +28,8 @@
     <p class="section-label">Applied Data Science</p>
     <h2 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--navy); margin-bottom:1rem;">Projects &amp; Analysis</h2>
     <div class="divider"></div>
-    <p style="font-size:0.97rem; line-height:1.9; color:var(--text-light); max-width:680px; margin-bottom:0.5rem;">
-      This portfolio showcases selected project work from my Master of Science in Applied Data Science program and professional experience. Projects span quantitative analysis, machine learning, compliance analytics, and business intelligence.
-    </p>
     <p style="font-size:0.97rem; line-height:1.9; color:var(--text-light); max-width:680px;">
-      Check back as projects are added throughout the program.
+      The following projects were completed as part of my Master of Science in Applied Data Science program. They span machine learning, database management, financial analysis, and cloud infrastructure — each grounded in real-world business problems.
     </p>
   </div>
 
@@ -41,45 +38,58 @@
 
       <div class="portfolio-card">
         <div class="portfolio-number">01</div>
-        <h3>Compliance Risk Modeling</h3>
-        <p>Quantitative analysis of regulatory compliance patterns using historical data to identify risk indicators and predict potential violations before they occur.</p>
+        <h3>Predictive Analytics — Heart Disease Detection</h3>
+        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Machine Learning · Advanced</p>
+        <p>Using a CDC dataset of over 300,000 patient questionnaire responses, a predictive model was built to help medical professionals identify patients at high risk for heart disease. Six classifiers were evaluated using a 5-fold cross-validation pipeline, with Logistic Regression emerging as the top performer at an F1-Macro score of 0.76 and ROC-AUC of 0.84. Key findings revealed that age and chronic conditions such as stroke, kidney disease, and diabetes are the strongest predictors, while sleep, exercise, BMI, and mental health represent measurable levers for early intervention.</p>
         <div class="career-tags" style="margin-top:1.2rem;">
           <span class="tag">Python</span>
-          <span class="tag">Risk Analysis</span>
-          <span class="tag">Predictive Modeling</span>
+          <span class="tag">Random Forest</span>
+          <span class="tag">SMOTE</span>
+          <span class="tag">GridSearch</span>
+          <span class="tag">PCA</span>
+          <span class="tag">CDC Dataset</span>
         </div>
       </div>
 
       <div class="portfolio-card">
         <div class="portfolio-number">02</div>
-        <h3>Financial Data Pipeline</h3>
-        <p>Design and implementation of an automated data pipeline for financial reporting, reducing manual processing time and improving data accuracy across reporting cycles.</p>
+        <h3>SQL Querying for Mortgage Lender</h3>
+        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Database Management · Intermediate</p>
+        <p>Designed and implemented a relational SQL database in Azure for First Rate Financial, a Texas mortgage brokerage funding over $100 million annually. The database separates data across Property, Borrower, and Loan tables, enabling Loan Officers to identify refinance opportunities among past clients and evaluate new applicants by risk level. Borrowers were segmented into High, Medium, and Low Risk groups using income, debt-to-income ratio, FICO scores, and loan-to-value — improving operational efficiency across the lending workflow.</p>
         <div class="career-tags" style="margin-top:1.2rem;">
           <span class="tag">SQL</span>
-          <span class="tag">Automation</span>
-          <span class="tag">Data Engineering</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">Risk Segmentation</span>
+          <span class="tag">Mortgage Analytics</span>
         </div>
       </div>
 
       <div class="portfolio-card">
         <div class="portfolio-number">03</div>
-        <h3>Logistics Route Optimization</h3>
-        <p>Data-driven route planning analysis inspired by territory management experience — using spatial data and operational constraints to minimize delivery costs and time.</p>
+        <h3>FAANG Stock Data Analysis</h3>
+        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Scripting for Data Analysis · Intermediate</p>
+        <p>Analyzed the performance of five major tech stocks — NVDA, AAPL, MSFT, GOOGL, and AMZN — against the S&amp;P 500 and DOW over a 15-year period. The project employed time series analysis, correlation studies, and sentiment analysis using the Tweepy API to measure market volatility in relation to major news events. Key finding: NVIDIA showed the lowest correlation with other FAANG stocks, while Apple, Google, Amazon, and Microsoft moved closely in tandem with broader market benchmarks.</p>
         <div class="career-tags" style="margin-top:1.2rem;">
-          <span class="tag">Operations Research</span>
-          <span class="tag">Geospatial Data</span>
-          <span class="tag">Optimization</span>
+          <span class="tag">Python</span>
+          <span class="tag">Time Series</span>
+          <span class="tag">Sentiment Analysis</span>
+          <span class="tag">yfinance API</span>
+          <span class="tag">Correlation Analysis</span>
         </div>
       </div>
 
       <div class="portfolio-card">
         <div class="portfolio-number">04</div>
-        <h3>Market Rate Impact Analysis</h3>
-        <p>Analysis of interest rate movements and their downstream effects on mortgage origination volume, client behavior, and competitive positioning in the lending market.</p>
+        <h3>Cloud Migration Feasibility Study</h3>
+        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Cloud Management · Intermediate</p>
+        <p>Conducted a comprehensive cloud migration feasibility study for a fictional music streaming platform (Cecilia) competing against Spotify and Apple Music. AWS, Microsoft Azure, and Google Cloud were evaluated across 19 categories spanning financial, technical, and operational dimensions. The cost analysis revealed on-premises operations running $13.1M annually versus an AWS equivalent of $2.4–$3.1M — generating estimated savings of $9.6M–$10.4M per year and over $115 million across a 10-year horizon. AWS was identified as the clear choice for media-specific workloads.</p>
         <div class="career-tags" style="margin-top:1.2rem;">
-          <span class="tag">Financial Analysis</span>
-          <span class="tag">Time Series</span>
-          <span class="tag">Market Research</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Google Cloud</span>
+          <span class="tag">Cost Analysis</span>
+          <span class="tag">Cloud Architecture</span>
         </div>
       </div>
 
@@ -87,7 +97,15 @@
   </div>
 
   <footer>
-    <span class="footer-name">Richard Brad Dickson</span>
+    <span class="footer-name">Richard B. Dickson</span>
     <div class="footer-links">
       <a href="../about/index.html">About</a>
-      <a href="../career-highlights/index.h
+      <a href="../career-highlights/index.html">Career</a>
+      <a href="../portfolio/index.html">Portfolio</a>
+      <a href="https://www.linkedin.com/in/richardbdickson" target="_blank">LinkedIn</a>
+    </div>
+    <span class="footer-copy">© 2025 Richard B. Dickson</span>
+  </footer>
+
+</body>
+</html>
