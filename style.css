@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --navy: #0f1f38;
+  --navy-mid: #1a2f4e;
+  --gold: #c8a96e;
+  --gold-light: #e8d5a8;
+  --cream: #f8f5f0;
+  --text: #2c2c2c;
+  --text-light: #6b6b6b;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 4rem;
+  background: rgba(15, 31, 56, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 240, 0.75);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-text {
+  padding: 8rem 4rem 8rem 6rem;
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-bio {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(248,245,240,0.75);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.hero-cta:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.hero-image {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1.2s ease both 0.3s;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(15%);
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--navy) 0%, transparent 25%);
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 6rem 6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.section p {
+  font-size: 0.97rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  max-width: 680px;
+  margin-bottom: 1.2rem;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.5rem 0 2rem;
+}
+
+/* ── HOME CARDS ── */
+.home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--navy);
+  margin-top: 4rem;
+}
+
+.home-card {
+  background: var(--cream);
+  padding: 3rem;
+  transition: background 0.3s;
+}
+
+.home-card:hover { background: var(--white); }
+
+.home-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.home-card p {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.card-link {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.card-link:hover { opacity: 0.7; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  padding: 3rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(200,169,110,0.2);
+}
+
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(248,245,240,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(248,245,240,0.35);
+}
+
+/* ── PAGE HERO (inner pages) ── */
+.page-hero {
+  padding: 10rem 6rem 5rem;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  bottom: -50%; right: -5%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%);
+}
+
+.page-hero-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+/* ── ABOUT PAGE ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+  padding: 6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-photo {
+  position: sticky;
+  top: 6rem;
+}
+
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(10%);
+}
+
+.about-photo-caption {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+}
+
+.about-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin: 2rem 0 1rem;
+  line-height: 1.2;
+}
+
+.about-content h2:first-child { margin-top: 0; }
+
+.about-content p {
+  font-size: 0.97rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+}
+
+.connect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: background 0.3s;
+}
+
+.connect-btn:hover { background: var(--navy-mid); }
+
+/* ── CAREER PAGE ── */
+.career-section {
+  padding: 6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.career-entry {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(15,31,56,0.1);
+  animation: fadeUp 0.6s ease both;
+}
+
+.career-entry:last-child { border-bottom: none; }
+
+.career-meta {
+  padding-top: 0.25rem;
+}
+
+.career-company {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.career-period {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.career-role {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.career-desc {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-light);
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(15,31,56,0.2);
+  color: var(--navy);
+}
+
+/* ── PORTFOLIO PAGE ── */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--navy);
+  margin: 3rem 0;
+}
+
+.portfolio-card {
+  background: var(--cream);
+  padding: 3rem;
+  transition: background 0.3s;
+}
+
+.portfolio-card:hover { background: var(--white); }
+
+.portfolio-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(15,31,56,0.08);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.portfolio-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+}
+
+.portfolio-card p {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text-light);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-image { display: none; }
+  .hero-text { padding: 8rem 2rem 4rem; }
+  .section { padding: 4rem 2rem; }
+  .about-grid { grid-template-columns: 1fr; padding: 3rem 2rem; }
+  .about-photo { position: static; }
+  .career-section { padding: 3rem 2rem; }
+  .career-entry { grid-template-columns: 1fr; gap: 0.5rem; }
+  .home-cards, .portfolio-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
+  .page-hero { padding: 8rem 2rem 3rem; }
+}
