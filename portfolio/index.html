@@ -6,6 +6,273 @@
   <title>Portfolio | Richard B. Dickson</title>
   <meta name="description" content="Data science and analytics portfolio of Richard B. Dickson.">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .project-block {
+      padding: 4rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(15,31,56,0.08);
+    }
+    .project-block:last-child { border-bottom: none; }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(15,31,56,0.07);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .project-meta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .project-course {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .project-body {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .project-desc strong {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* STAT CARDS */
+    .stat-panel {
+      background: var(--navy);
+      padding: 2rem;
+    }
+
+    .stat-panel-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(200,169,110,0.25);
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat-row:last-of-type { border-bottom: none; }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(248,245,240,0.55);
+      letter-spacing: 0.04em;
+    }
+
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      text-align: right;
+      max-width: 55%;
+    }
+
+    .stat-value.highlight {
+      color: #7dd3b0;
+      font-size: 1.3rem;
+    }
+
+    /* BAR CHART */
+    .bar-chart {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(200,169,110,0.2);
+    }
+
+    .bar-chart-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(248,245,240,0.45);
+      margin-bottom: 0.8rem;
+    }
+
+    .bar-item {
+      margin-bottom: 0.6rem;
+    }
+
+    .bar-item-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.73rem;
+      color: rgba(248,245,240,0.6);
+      margin-bottom: 0.25rem;
+    }
+
+    .bar-track {
+      height: 5px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--gold);
+      transition: width 1s ease;
+    }
+
+    .bar-fill.green { background: #7dd3b0; }
+    .bar-fill.blue  { background: #7eb8d4; }
+
+    /* RISK METER */
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(200,169,110,0.2);
+    }
+
+    .risk-cell {
+      text-align: center;
+      padding: 0.7rem 0.4rem;
+    }
+
+    .risk-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 auto 0.4rem;
+    }
+
+    .risk-dot.high  { background: #e07070; }
+    .risk-dot.med   { background: #e8c56e; }
+    .risk-dot.low   { background: #7dd3b0; }
+
+    .risk-cell-label {
+      font-size: 0.68rem;
+      color: rgba(248,245,240,0.5);
+      letter-spacing: 0.06em;
+    }
+
+    .risk-cell-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+    }
+
+    /* STOCK MINI CHART */
+    .stock-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 50px;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(200,169,110,0.2);
+    }
+
+    .stock-bar {
+      flex: 1;
+      border-radius: 2px 2px 0 0;
+      min-height: 6px;
+      position: relative;
+    }
+
+    .stock-bar-label {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      color: rgba(248,245,240,0.45);
+      white-space: nowrap;
+    }
+
+    /* CLOUD COST COMPARISON */
+    .cost-compare {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(200,169,110,0.2);
+    }
+
+    .cost-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cost-box {
+      padding: 0.6rem;
+      text-align: center;
+    }
+
+    .cost-box.onprem { background: rgba(224,112,112,0.15); }
+    .cost-box.cloud  { background: rgba(125,211,176,0.15); }
+
+    .cost-box-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(248,245,240,0.45);
+      margin-bottom: 0.3rem;
+    }
+
+    .cost-box-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--gold-light);
+    }
+
+    .savings-badge {
+      text-align: center;
+      padding: 0.5rem;
+      background: rgba(125,211,176,0.12);
+      font-size: 0.75rem;
+      color: #7dd3b0;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 900px) {
+      .project-block { padding: 3rem 2rem; }
+      .project-body { grid-template-columns: 1fr; }
+      .project-num { font-size: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -24,88 +291,29 @@
     <h1>Portfolio</h1>
   </div>
 
-  <div style="padding: 4rem 6rem; max-width: 1100px; margin: 0 auto;">
+  <div style="padding: 3rem 6rem 1rem; max-width: 1100px; margin: 0 auto;">
     <p class="section-label">Applied Data Science</p>
     <h2 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--navy); margin-bottom:1rem;">Projects &amp; Analysis</h2>
     <div class="divider"></div>
     <p style="font-size:0.97rem; line-height:1.9; color:var(--text-light); max-width:680px;">
-      The following projects were completed as part of my Master of Science in Applied Data Science program. They span machine learning, database management, financial analysis, and cloud infrastructure — each grounded in real-world business problems.
+      The following projects were completed as part of my Master of Science in Applied Data Science program, spanning machine learning, database management, financial analysis, and cloud infrastructure — each grounded in real-world business problems.
     </p>
   </div>
 
-  <div style="padding: 0 6rem 6rem; max-width: 1100px; margin: 0 auto;">
-    <div class="portfolio-grid">
-
-      <div class="portfolio-card">
-        <div class="portfolio-number">01</div>
-        <h3>Predictive Analytics — Heart Disease Detection</h3>
-        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Machine Learning · Advanced</p>
-        <p>Using a CDC dataset of over 300,000 patient questionnaire responses, a predictive model was built to help medical professionals identify patients at high risk for heart disease. Six classifiers were evaluated using a 5-fold cross-validation pipeline, with Logistic Regression emerging as the top performer at an F1-Macro score of 0.76 and ROC-AUC of 0.84. Key findings revealed that age and chronic conditions such as stroke, kidney disease, and diabetes are the strongest predictors, while sleep, exercise, BMI, and mental health represent measurable levers for early intervention.</p>
-        <div class="career-tags" style="margin-top:1.2rem;">
-          <span class="tag">Python</span>
-          <span class="tag">Random Forest</span>
-          <span class="tag">SMOTE</span>
-          <span class="tag">GridSearch</span>
-          <span class="tag">PCA</span>
-          <span class="tag">CDC Dataset</span>
-        </div>
+  <!-- PROJECT 1 -->
+  <div class="project-block">
+    <div class="project-header">
+      <div class="project-num">01</div>
+      <div class="project-meta">
+        <h2>Predictive Analytics — Heart Disease Detection</h2>
+        <p class="project-course">Machine Learning · Final Project · CDC Dataset · Complexity: Advanced</p>
       </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-number">02</div>
-        <h3>SQL Querying for Mortgage Lender</h3>
-        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Database Management · Intermediate</p>
-        <p>Designed and implemented a relational SQL database in Azure for First Rate Financial, a Texas mortgage brokerage funding over $100 million annually. The database separates data across Property, Borrower, and Loan tables, enabling Loan Officers to identify refinance opportunities among past clients and evaluate new applicants by risk level. Borrowers were segmented into High, Medium, and Low Risk groups using income, debt-to-income ratio, FICO scores, and loan-to-value — improving operational efficiency across the lending workflow.</p>
-        <div class="career-tags" style="margin-top:1.2rem;">
-          <span class="tag">SQL</span>
-          <span class="tag">Azure</span>
-          <span class="tag">Database Design</span>
-          <span class="tag">Risk Segmentation</span>
-          <span class="tag">Mortgage Analytics</span>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-number">03</div>
-        <h3>FAANG Stock Data Analysis</h3>
-        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Scripting for Data Analysis · Intermediate</p>
-        <p>Analyzed the performance of five major tech stocks — NVDA, AAPL, MSFT, GOOGL, and AMZN — against the S&amp;P 500 and DOW over a 15-year period. The project employed time series analysis, correlation studies, and sentiment analysis using the Tweepy API to measure market volatility in relation to major news events. Key finding: NVIDIA showed the lowest correlation with other FAANG stocks, while Apple, Google, Amazon, and Microsoft moved closely in tandem with broader market benchmarks.</p>
-        <div class="career-tags" style="margin-top:1.2rem;">
-          <span class="tag">Python</span>
-          <span class="tag">Time Series</span>
-          <span class="tag">Sentiment Analysis</span>
-          <span class="tag">yfinance API</span>
-          <span class="tag">Correlation Analysis</span>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-number">04</div>
-        <h3>Cloud Migration Feasibility Study</h3>
-        <p style="font-size:0.78rem; letter-spacing:0.08em; color:var(--gold); text-transform:uppercase; margin-bottom:0.8rem;">Cloud Management · Intermediate</p>
-        <p>Conducted a comprehensive cloud migration feasibility study for a fictional music streaming platform (Cecilia) competing against Spotify and Apple Music. AWS, Microsoft Azure, and Google Cloud were evaluated across 19 categories spanning financial, technical, and operational dimensions. The cost analysis revealed on-premises operations running $13.1M annually versus an AWS equivalent of $2.4–$3.1M — generating estimated savings of $9.6M–$10.4M per year and over $115 million across a 10-year horizon. AWS was identified as the clear choice for media-specific workloads.</p>
-        <div class="career-tags" style="margin-top:1.2rem;">
-          <span class="tag">AWS</span>
-          <span class="tag">Azure</span>
-          <span class="tag">Google Cloud</span>
-          <span class="tag">Cost Analysis</span>
-          <span class="tag">Cloud Architecture</span>
-        </div>
-      </div>
-
     </div>
-  </div>
-
-  <footer>
-    <span class="footer-name">Richard B. Dickson</span>
-    <div class="footer-links">
-      <a href="../about/index.html">About</a>
-      <a href="../career-highlights/index.html">Career</a>
-      <a href="../portfolio/index.html">Portfolio</a>
-      <a href="https://www.linkedin.com/in/richardbdickson" target="_blank">LinkedIn</a>
-    </div>
-    <span class="footer-copy">© 2025 Richard B. Dickson</span>
-  </footer>
-
-</body>
-</html>
+    <div class="project-body">
+      <div>
+        <p class="project-desc"><strong>Problem:</strong> Heart disease is the leading cause of death in the US and remains difficult to detect due to overlapping symptoms with other conditions.</p>
+        <p class="project-desc"><strong>Goal:</strong> Using a CDC dataset of over 300,000 patient questionnaire responses, build a predictive model to help medical professionals identify patients at high risk for heart disease early.</p>
+        <p class="project-desc"><strong>Method:</strong> Six classifiers evaluated through a 5-fold cross-validation pipeline measuring Accuracy, ROC-AUC, and F1-score. SMOTE addressed class imbalance; GridSearch tuned hyperparameters; PCA reduced dimensionality.</p>
+        <p class="project-desc"><strong>Clinical Insight:</strong> Age and chronic conditions — stroke, kidney disease, diabetes — are the strongest predictors. Sleep, exercise, BMI, and mental health are measurable levers for early intervention.</p>
+        <div class="career-tags">
+          <span class="t
