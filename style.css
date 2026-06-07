@@ -22,6 +22,7 @@ body {
   overflow-x: hidden;
 }
 
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -66,6 +67,7 @@ nav {
   color: var(--gold);
 }
 
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: grid;
@@ -168,6 +170,7 @@ nav {
   background: linear-gradient(to right, var(--navy) 0%, transparent 25%);
 }
 
+/* ── SECTIONS ── */
 .section {
   padding: 6rem 6rem;
   max-width: 1100px;
@@ -206,6 +209,7 @@ nav {
   margin: 1.5rem 0 2rem;
 }
 
+/* ── HOME CARDS ── */
 .home-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -250,6 +254,7 @@ nav {
 
 .card-link:hover { opacity: 0.7; }
 
+/* ── FOOTER ── */
 footer {
   background: var(--navy);
   padding: 3rem 6rem;
@@ -286,6 +291,7 @@ footer {
   color: rgba(248,245,240,0.35);
 }
 
+/* ── PAGE HERO (inner pages) ── */
 .page-hero {
   padding: 10rem 6rem 5rem;
   background: var(--navy);
@@ -317,6 +323,7 @@ footer {
   line-height: 1.1;
 }
 
+/* ── ABOUT PAGE ── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
@@ -383,6 +390,7 @@ footer {
 
 .connect-btn:hover { background: var(--navy-mid); }
 
+/* ── CAREER PAGE ── */
 .career-section {
   padding: 6rem;
   max-width: 1100px;
@@ -400,7 +408,9 @@ footer {
 
 .career-entry:last-child { border-bottom: none; }
 
-.career-meta { padding-top: 0.25rem; }
+.career-meta {
+  padding-top: 0.25rem;
+}
 
 .career-company {
   font-family: 'Cormorant Garamond', serif;
@@ -448,6 +458,7 @@ footer {
   color: var(--navy);
 }
 
+/* ── PORTFOLIO PAGE ── */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -487,6 +498,7 @@ footer {
   color: var(--text-light);
 }
 
+/* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -495,6 +507,226 @@ footer {
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+/* ── RESPONSIVE ── */
+/* ── PORTFOLIO PROJECT BLOCKS ── */
+.project-block {
+  padding: 4rem 6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(15,31,56,0.08);
+}
+.project-block:last-child { border-bottom: none; }
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.project-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: rgba(15,31,56,0.07);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.project-meta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.project-course {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.project-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+}
+
+.project-desc strong {
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.stat-panel {
+  background: var(--navy);
+  padding: 2rem;
+}
+
+.stat-panel-title {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(200,169,110,0.25);
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.stat-row:last-of-type { border-bottom: none; }
+
+.stat-label {
+  font-size: 0.78rem;
+  color: rgba(248,245,240,0.55);
+  letter-spacing: 0.04em;
+}
+
+.stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  text-align: right;
+  max-width: 55%;
+}
+
+.stat-value.highlight {
+  color: #7dd3b0;
+  font-size: 1.3rem;
+}
+
+.bar-chart {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(200,169,110,0.2);
+}
+
+.bar-chart-title {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(248,245,240,0.45);
+  margin-bottom: 0.8rem;
+}
+
+.bar-item { margin-bottom: 0.6rem; }
+
+.bar-item-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.73rem;
+  color: rgba(248,245,240,0.6);
+  margin-bottom: 0.25rem;
+}
+
+.bar-track {
+  height: 5px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+.bar-fill.green { background: #7dd3b0; }
+.bar-fill.blue  { background: #7eb8d4; }
+
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(200,169,110,0.2);
+}
+
+.risk-cell { text-align: center; padding: 0.7rem 0.4rem; }
+
+.risk-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 auto 0.4rem;
+}
+
+.risk-dot.high  { background: #e07070; }
+.risk-dot.med   { background: #e8c56e; }
+.risk-dot.low   { background: #7dd3b0; }
+
+.risk-cell-label {
+  font-size: 0.68rem;
+  color: rgba(248,245,240,0.5);
+  letter-spacing: 0.06em;
+}
+
+.risk-cell-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--gold-light);
+}
+
+.cost-compare {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(200,169,110,0.2);
+}
+
+.cost-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cost-box { padding: 0.6rem; text-align: center; }
+.cost-box.onprem { background: rgba(224,112,112,0.15); }
+.cost-box.cloud  { background: rgba(125,211,176,0.15); }
+
+.cost-box-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248,245,240,0.45);
+  margin-bottom: 0.3rem;
+}
+
+.cost-box-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--gold-light);
+}
+
+.savings-badge {
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(125,211,176,0.12);
+  font-size: 0.75rem;
+  color: #7dd3b0;
+  letter-spacing: 0.06em;
 }
 
 @media (max-width: 900px) {
@@ -511,4 +743,7 @@ footer {
   .home-cards, .portfolio-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
   .page-hero { padding: 8rem 2rem 3rem; }
+  .project-block { padding: 3rem 2rem; }
+  .project-body { grid-template-columns: 1fr; }
+  .project-num { font-size: 2.5rem; }
 }
