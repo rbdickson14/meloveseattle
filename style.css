@@ -22,7 +22,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -67,7 +66,6 @@ nav {
   color: var(--gold);
 }
 
-/* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: grid;
@@ -170,7 +168,6 @@ nav {
   background: linear-gradient(to right, var(--navy) 0%, transparent 25%);
 }
 
-/* ── SECTIONS ── */
 .section {
   padding: 6rem 6rem;
   max-width: 1100px;
@@ -209,7 +206,6 @@ nav {
   margin: 1.5rem 0 2rem;
 }
 
-/* ── HOME CARDS ── */
 .home-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -254,7 +250,6 @@ nav {
 
 .card-link:hover { opacity: 0.7; }
 
-/* ── FOOTER ── */
 footer {
   background: var(--navy);
   padding: 3rem 6rem;
@@ -291,7 +286,6 @@ footer {
   color: rgba(248,245,240,0.35);
 }
 
-/* ── PAGE HERO (inner pages) ── */
 .page-hero {
   padding: 10rem 6rem 5rem;
   background: var(--navy);
@@ -323,7 +317,6 @@ footer {
   line-height: 1.1;
 }
 
-/* ── ABOUT PAGE ── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
@@ -390,7 +383,6 @@ footer {
 
 .connect-btn:hover { background: var(--navy-mid); }
 
-/* ── CAREER PAGE ── */
 .career-section {
   padding: 6rem;
   max-width: 1100px;
@@ -408,9 +400,7 @@ footer {
 
 .career-entry:last-child { border-bottom: none; }
 
-.career-meta {
-  padding-top: 0.25rem;
-}
+.career-meta { padding-top: 0.25rem; }
 
 .career-company {
   font-family: 'Cormorant Garamond', serif;
@@ -458,7 +448,6 @@ footer {
   color: var(--navy);
 }
 
-/* ── PORTFOLIO PAGE ── */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -498,7 +487,6 @@ footer {
   color: var(--text-light);
 }
 
-/* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -509,7 +497,6 @@ footer {
   to   { opacity: 1; }
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { gap: 1.2rem; }
