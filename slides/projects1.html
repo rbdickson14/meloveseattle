@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1 — Heart Disease Detection | Richard B. Dickson</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .slide-viewer { max-width: 1000px; margin: 0 auto; padding: 7rem 3rem 4rem; }
+    .slide-back { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 2rem; transition: opacity 0.2s; }
+    .slide-back:hover { opacity: 0.7; }
+    .slide-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--navy); margin-bottom: 0.4rem; }
+    .slide-course { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+    .slide-image-wrap { background: var(--navy); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .slide-image-wrap img { width: 100%; display: block; }
+    .slide-sources { margin-bottom: 2rem; padding: 1.2rem 1.5rem; background: rgba(15,31,56,0.04); border-left: 3px solid var(--gold); }
+    .slide-sources p { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .slide-sources a { display: block; font-size: 0.88rem; color: var(--navy); text-decoration: none; margin-bottom: 0.4rem; border-bottom: 1px solid rgba(15,31,56,0.15); padding-bottom: 0.4rem; transition: color 0.2s; }
+    .slide-sources a:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .slide-sources a:hover { color: var(--gold); }
+    .slide-nav { display: flex; align-items: center; justify-content: space-between; padding-top: 1.5rem; border-top: 1px solid rgba(15,31,56,0.1); }
+    .slide-nav-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border: 1px solid var(--navy); color: var(--navy); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: all 0.25s; }
+    .slide-nav-btn:hover { background: var(--navy); color: var(--gold-light); }
+    .slide-nav-btn.disabled { opacity: 0.2; pointer-events: none; }
+    .slide-counter { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-light); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo">Richard B. Dickson</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about/index.html">About Me</a></li>
+      <li><a href="../career-highlights/index.html">Career Highlights</a></li>
+      <li><a href="../portfolio/index.html" class="active">Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <div class="slide-viewer">
+    <a href="../portfolio/index.html" class="slide-back">← Back to Portfolio</a>
+    <h1 class="slide-title">Predictive Analytics — Heart Disease Detection</h1>
+    <p class="slide-course">Machine Learning · Final Project · CDC Dataset · Complexity: Advanced</p>
+
+    <!-- SLIDE 1 -->
+    <div id="slide-1">
+      <div class="slide-image-wrap">
+        <img src="../slides/p1-slide1.jpg" alt="Project 1 Slide 1">
+      </div>
+      <div class="slide-sources">
+        <p>Source Links</p>
+        <a href="https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease" target="_blank">CDC Heart Disease Indicators Dataset →</a>
+        <a href="https://www.cdc.gov/brfss/index.html" target="_blank">CDC BRFSS →</a>
+        <a href="https://www.cdc.gov/brfss/questionnaires/index.htm#print" target="_blank">CDC Questionnaires →</a>
+      </div>
+      <div class="slide-nav">
+        <span class="slide-nav-btn disabled">← Previous</span>
+        <span class="slide-counter">1 / 3</span>
+        <a href="#slide-2" class="slide-nav-btn" onclick="showSlide(2)">Next →</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div id="slide-2" style="display:none;">
+      <div class="slide-image-wrap">
+        <img src="../slides/p1-slide2.jpg" alt="Project 1 Slide 2">
+      </div>
+      <div class="slide-nav">
+        <a href="#slide-1" class="slide-nav-btn" onclick="showSlide(1)">← Previous</a>
+        <span class="slide-counter">2 / 3</span>
+        <a href="#slide-3" class="slide-nav-btn" onclick="showSlide(3)">Next →</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div id="slide-3" style="display:none;">
+      <div class="slide-image-wrap">
+        <img src="../slides/p1-slide3.jpg" alt="Project 1 Slide 3">
+      </div>
+      <div class="slide-nav">
+        <a href="#slide-2" class="slide-nav-btn" onclick="showSlide(2)">← Previous</a>
+        <span class="slide-counter">3 / 3</span>
+        <span class="slide-nav-btn disabled">Next →</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-name">Richard B. Dickson</span>
+    <div class="footer-links">
+      <a href="../about/index.html">About</a>
+      <a href="../career-highlights/index.html">Career</a>
+      <a href="../portfolio/index.html">Portfolio</a>
+      <a href="https://www.linkedin.com/in/richardbdickson" target="_blank">LinkedIn</a>
+    </div>
+    <span class="footer-copy">© 2025 Richard B. Dickson</span>
+  </footer>
+
+  <script>
+    function showSlide(n) {
+      document.getElementById('slide-1').style.display = 'none';
+      document.getElementById('slide-2').style.display = 'none';
+      document.getElementById('slide-3').style.display = 'none';
+      document.getElementById('slide-' + n).style.display = 'block';
+      window.scrollTo(0, 200);
+    }
+  </script>
+</body>
+</html>
